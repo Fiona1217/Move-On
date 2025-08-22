@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move On | Registration</title>
+    <link rel="icon" type="image/png" href="assets/pics/Logo.png">
+    <link rel="stylesheet" href="styleRegistration.css">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/67e9c85dec.js" crossorigin="anonymous"></script>
+    <link href="/assets/fontawesome/css/fontawesome.css" rel="stylesheet" />
+    <link href="/assets/fontawesome/css/solid.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Inter';
+        }
+    </style>
+</head>
+<body>
+    <section id="pageTwo" class="registration-innerContent">
+        <div class="headerForm">
+            <h1>Create Your Profile</h1>
+            <p>Final Step! Verify your email and introduce yourself!</p>
+        </div>
+        <form action="https://usebasin.com/f/48434ad4fbe7" method='post'>
+            <div>
+                <label for='fullName'>Full Name: </label>
+                <input id="fullName" type='text' class='textbox' name='fullName' placeholder='Enter your full name'>
+                <span id="fullNameError" class="blankError"></span>
+            </div>
+
+            <div>
+                <label for='preferredName'>Preferred Name (Optional): </label>
+                <input type='text' class='textbox' name='preferredName' placeholder='How would you like to be called?'>
+            </div>
+
+            <div>
+                <label for='uOttawaEmail'>uOttawa Email: </label>
+                <input id="uOttawaEmail" type='text' class='textbox' name='uOttawaEmail' placeholder='your.name@uottawa.ca'>
+                <span id="uOttawaEmailError" class="blankError"></span>
+            </div>
+
+            <div>
+                <label for='bio'>Bio (Optional): </label>
+                <textarea name="bio" rows="5" cols="40" placeholder="Tell us about your fitness goals and what you're looking for in a workout partner..."></textarea>
+            </div>
+            
+            <div>
+                <button type='submit' value='Send'>Complete Profile</button>
+            </div>
+        </form>
+    </section>
+
+    <script type="module" src="registration.js" defer></script>
+
+</body>
+</html>

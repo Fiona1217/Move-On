@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move On | Registration</title>
+    <link rel="icon" type="image/png" href="assets/pics/Logo.png">
+    <link rel="stylesheet" href="styleCharacter1.css">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/67e9c85dec.js" crossorigin="anonymous"></script>
+    <link href="/assets/fontawesome/css/fontawesome.css" rel="stylesheet" />
+    <link href="/assets/fontawesome/css/solid.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Inter';
+        }
+    </style>
+</head>
+<body>
+    <!-- Info Box -->
+    <div class="info_box">
+        <div class="info-title">Manifest Your Vibe</div>
+        <div class="info-list">
+            <div class="info">Let's discover your fitness character archetype</div>
+        </div>
+        <div class="buttons">
+            <button formaction="index.html" class="quit">Go Back</button>
+            <button class="restart"><p>Discover My Character</p><i class="fa-regular fa-chess-queen"></i></button>
+        </div>
+    </div>
+
+    <!-- Quiz Box -->
+    <div class="quiz_box">
+        <header>
+            <div class="title">Manifest Your Vibe</div>
+            <div class="time_line"></div>
+        </header>
+        <section>
+            <div class="que_text"></div>
+            <div class="option_list"></div>
+        </section>
+        <footer>
+            <div class="total_que"></div>
+            <button class="next_btn">Next</button>
+        </footer>
+    </div>
+
+    <!-- Result Box -->
+    <div class="result_box">
+        <div class="complete_text">You've completed the Quiz!</div>
+        <div class="score_text"></div>
+        <div class="buttons">
+            <button class="quit restart fire_btn">Yay!</button>
+        </div>
+    </div>
+    
+    <!-- Inside this JavaScript file I've inserted Questions and Options only -->
+    <script src="character1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+</body>
+</html>

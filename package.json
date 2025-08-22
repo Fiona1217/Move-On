@@ -1,0 +1,23 @@
+{
+  "name": "move-on",
+  "version": "1.0.0",
+  "description": "Fitness Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fiona1217/Move-On.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fiona1217/Move-On/issues"
+  },
+  "homepage": "https://github.com/Fiona1217/Move-On#readme",
+  "dependencies": {
+    "firebase": "^12.1.0"
+  }
+}

@@ -1,0 +1,441 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #FAF6F6;
+    height: 100%;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(0,0,0,0.02),
+        rgba(0,0,0,0.02) 1px,
+        transparent 5px,
+        transparent 20px
+    );
+    z-index: -1;
+}
+
+::selection {
+    color: snow;
+    background: #007bff;
+}
+
+.start_btn, .info_box, .quiz_box, .result_box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.info_box.activeInfo, .quiz_box.activeQuiz, .result_box.activeResult{
+    opacity: 1;
+    z-index: 5;
+    pointer-events: auto;
+    transform: translate(-50%, -50%);
+}
+
+.info_box{
+    width: 40%;
+    background: snow;
+    border-radius: 15px;
+    transform: translate(-50%, -150%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.info_box .info-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  padding-bottom: 5px;
+  font-size: 20pt;
+  font-weight: 600;
+  text-align: center;
+}
+
+.info_box .info-list {
+  padding: 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.info_box .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 5px;
+}
+
+.info_box .buttons button {
+  margin: 20px;
+  width: 280px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  border: 2px solid #770C27;
+  transition: all 0.3s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+@keyframes fa-bounce {
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+  }
+  30% {
+    transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+  }
+  50% {
+    transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+  }
+  57% {
+    transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+  }
+  64% {
+    transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
+}
+
+.info_box button:hover i {
+  animation-name: fa-bounce;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, normal);
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+}
+
+.info_box button:hover {
+  transform: scale(105%);
+}
+
+.quiz_box {
+  width: 550px;
+  background: snow;
+  border-radius: 20px;
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.quiz_box header {
+  position: relative;
+  z-index: 2;
+  height: 70px;
+  padding: 0 30px;
+  background:snow;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+}
+
+.quiz_box header .title {
+  font-size: 14pt;
+  font-weight: 600;
+}
+
+.quiz_box header .time_line {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: 3px;
+  background-image: linear-gradient(to right, #b38792, #9ec0cf);
+  transition: width 0.5s ease-in-out;
+}
+
+section {
+  padding: 25px 30px 20px 30px;
+  background: snow;
+}
+
+section .que_text {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+section .option_list {
+  padding: 20px 0px;
+  display: block;
+}
+
+section .option_list .option {
+  background: #FAF6F6;
+  border: 1px solid #64b6d9;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-size: 17px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+section .option_list .option:last-child {
+  margin-bottom: 0px;
+}
+
+section .option_list .option:hover {
+  background: #a9e5ff;
+  border: 1px solid #155776;
+}
+
+section .option_list .option.disabled {
+  pointer-events: none;
+}
+
+section .option_list .option .icon {
+  height: 26px;
+  width: 26px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 13px;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  line-height: 24px;
+}
+
+section .option_list .option.selected {
+  background-color: #c0dfee;
+  border: 1px solid #155776;
+  border-bottom: 3px outset rgb(20, 121, 193);
+}
+
+footer {
+  height: 60px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid lightgrey;
+}
+
+footer .total_que span {
+  display: flex;
+  user-select: none;
+}
+
+footer .total_que span p {
+  font-weight: 500;
+  padding: 0 5px;
+}
+
+footer .total_que span p:first-child {
+  padding-left: 0px;
+}
+
+footer button {
+  height: 40px;
+  padding: 0 13px;
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  color: snow;
+  border-radius: 5px;
+  background: #770C27;
+  border: 1px solid #770C27;
+  line-height: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95);
+  transition: all 0.3s ease;
+}
+
+footer button:hover {
+  background: #911836;
+  transform: scale(105%);
+}
+
+footer button.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+.result_box {
+  background: snow;
+  border-radius: 25px;
+  display: flex;
+  padding: 25px 30px;
+  width: 550px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.result_box .complete_text {
+  margin-top: 5px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.result_box .score_text span {
+  display: flex;
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.result_box .score_text span p {
+  padding: 0 4px;
+  font-weight: 600;
+}
+
+.result_box .buttons {
+  display: flex;
+}
+
+.result_box .buttons button {
+  margin: 0 10px;
+  width: 80px;
+  height: 40px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  border: 1px solid #770C27;
+  transition: all 0.3s ease;
+}
+
+.result_box .buttons button:hover{
+  animation-name: fa-bounce;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, normal);
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+}
+
+.buttons button.restart {
+  color: snow;
+  background: #770C27;
+}
+
+.buttons button.restart:hover {
+  background: #911836;
+  transform: scale(105%);
+}
+
+.personality-result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  padding: 40px;
+  padding-bottom: 20px;
+}
+
+.personality-img {
+  display: block;
+  margin: auto;
+  width: 35%;
+}
+
+.personality-title {
+  margin-top: 20px;
+  font-size: 17pt;
+  color: #155776;
+  font-weight: bold;
+}
+
+.personality-quote {
+  margin-top: 5px;
+  font-weight: 400;
+  color:#770C27;
+  font-size: 12pt;
+  font-style: italic;
+  margin-bottom: 10px
+}
+
+.personality-desc {
+  font-size: 11pt;
+  line-height: 1.5;
+  margin: 20px 0px;
+}
+
+.personality-info, .personality-strengths, .personality-match {
+    text-align: left;
+    font-size: 12pt;
+    margin: 5px 0px;
+}
+
+.personality-strengths {
+    list-style: none;
+    padding-left: 0;
+}
+
+.personality-strengths li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 5px;
+}
+
+.personality-strengths li:last-child {
+    margin-bottom: 20px;
+}
+
+.personality-strengths li::before {
+    content: "☆";
+    position: absolute;
+    left: 0;
+}
+
+.personality-info strong {
+  color:#770C27;
+  font-size: 13pt;
+  margin-top: 10px;
+}
+
+.personality-match{
+  margin-top: 10px;
+  width: 45%;
+  background-color: #155776;
+  color: snow;
+  border-radius: 5px;
+  padding: 8px;
+  font-weight: bold;
+  font-size: 10pt;
+}
