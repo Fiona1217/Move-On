@@ -2,13 +2,14 @@ import 'dotenv/config';
 import nodemailer from "nodemailer";
 import admin from 'firebase-admin';
 
+require('dotenv').config();
+console.log("Firebase env:", process.env.FIREBASE_KEY_PATH);
+
 // Initialize Firebase Admin
 if (!admin.apps.length) {
   admin.initializeApp({
     credential: admin.credential.cert(
-      JSON.parse(
-        require('fs').readFileSync(process.env.FIREBASE_KEY_PATH, 'utf-8')
-      )
+      JSON.parse(process.env.FIREBASE_KEY_PATH)
     )
   });
 }
