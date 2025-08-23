@@ -1,59 +1,59 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background: #FAF6F6;
-    height: 100%;
+  background: #FAF6F6;
+  height: 100%;
 }
 
 body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(
-        45deg,
-        rgba(0,0,0,0.02),
-        rgba(0,0,0,0.02) 1px,
-        transparent 5px,
-        transparent 20px
-    );
-    z-index: -1;
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+      45deg,
+      rgba(0,0,0,0.02),
+      rgba(0,0,0,0.02) 1px,
+      transparent 5px,
+      transparent 20px
+  );
+  z-index: -1;
 }
 
 ::selection {
-    color: snow;
-    background: #007bff;
+  color: snow;
+  background: #007bff;
 }
 
 .start_btn, .info_box, .quiz_box, .result_box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
-                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+              0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .info_box.activeInfo, .quiz_box.activeQuiz, .result_box.activeResult{
-    opacity: 1;
-    z-index: 5;
-    pointer-events: auto;
-    transform: translate(-50%, -50%);
+  opacity: 1;
+  z-index: 5;
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
 }
 
 .info_box{
-    width: 40%;
-    background: snow;
-    border-radius: 15px;
-    transform: translate(-50%, -150%);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
+  width: 40%;
+  background: snow;
+  border-radius: 15px;
+  transform: translate(-50%, -150%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
 }
 
 .info_box .info-title {
@@ -397,30 +397,30 @@ footer button.show {
 }
 
 .personality-info, .personality-strengths, .personality-match {
-    text-align: left;
-    font-size: 12pt;
-    margin: 5px 0px;
+  text-align: left;
+  font-size: 12pt;
+  margin: 5px 0px;
 }
 
 .personality-strengths {
-    list-style: none;
-    padding-left: 0;
+  list-style: none;
+  padding-left: 0;
 }
 
 .personality-strengths li {
-    position: relative;
-    padding-left: 20px;
-    margin-bottom: 5px;
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 5px;
 }
 
 .personality-strengths li:last-child {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .personality-strengths li::before {
-    content: "☆";
-    position: absolute;
-    left: 0;
+  content: "☆";
+  position: absolute;
+  left: 0;
 }
 
 .personality-info strong {
@@ -431,11 +431,12 @@ footer button.show {
 
 .personality-match{
   margin-top: 10px;
-  width: 45%;
+  width: 50%;
   background-color: #155776;
   color: snow;
   border-radius: 5px;
   padding: 8px;
   font-weight: bold;
   font-size: 10pt;
+  text-align: center;
 }

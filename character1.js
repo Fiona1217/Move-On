@@ -244,4 +244,6 @@ function showResult() {
         <p class="personality-info">${data.workoutStyle}</p>
         <p class="personality-match"><strong>Best Match:</strong> ${data.bestMatch}</p>
     </div>`;
+
+    localStorage.setItem("userPersonality", personality);
 }

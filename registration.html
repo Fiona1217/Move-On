@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styleRegistration.css">
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/67e9c85dec.js" crossorigin="anonymous"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <link href="/assets/fontawesome/css/fontawesome.css" rel="stylesheet" />
     <link href="/assets/fontawesome/css/solid.css" rel="stylesheet" />
     <style>
@@ -22,11 +23,11 @@
             <h1>Create Your Profile</h1>
             <p>Final Step! Verify your email and introduce yourself!</p>
         </div>
-        <form action="https://usebasin.com/f/48434ad4fbe7" method='post'>
+        <form id="profileForm">
             <div>
-                <label for='fullName'>Full Name: </label>
-                <input id="fullName" type='text' class='textbox' name='fullName' placeholder='Enter your full name'>
-                <span id="fullNameError" class="blankError"></span>
+                <label for='firstName'>First Name: </label>
+                <input id="firstName" type='text' class='textbox' name='firstName' placeholder='Enter your first name'>
+                <span id="firstNameError" class="blankError"></span>
             </div>
 
             <div>
@@ -35,8 +36,13 @@
             </div>
 
             <div>
-                <label for='uOttawaEmail'>uOttawa Email: </label>
-                <input id="uOttawaEmail" type='text' class='textbox' name='uOttawaEmail' placeholder='your.name@uottawa.ca'>
+                <label for='lastName'>Last Name (Optional): </label>
+                <input id="lastName" type='text' class='textbox' name='lastName' placeholder='Enter your last name'>
+            </div>
+
+            <div>
+                <label for='uOttawaEmail'>Email: </label>
+                <input id="uOttawaEmail" type='text' class='textbox' name='uOttawaEmail' placeholder='firstname.lastname@example.com'>
                 <span id="uOttawaEmailError" class="blankError"></span>
             </div>
 
@@ -46,12 +52,44 @@
             </div>
             
             <div>
-                <button type='submit' value='Send'>Complete Profile</button>
+                <button id="completeProfileBtn" type='submit' value='Send'>Verify Email Address</button>
             </div>
         </form>
     </section>
 
-    <script type="module" src="registration.js" defer></script>
+    <div id="pageThree">
+        <div class="container">
+            <h4><b>Enter OTP Code</b></h4>
+            <p>Check your inbox/spam for the code</p>
+            <form id="otpForm" action="https://usebasin.com/f/48434ad4fbe7" method="post">
+            <div class="input-field">
+                <input type="number" />
+                <input type="number" disabled />
+                <input type="number" disabled />
+                <input type="number" disabled />
+                <input type="number" disabled />
+                <input type="number" disabled />
+            </div>
+            <button type="button" id="verifyBtn">Resend OTP</button>
+            <button type="button" id="backBtn">Back</button>
+            </form>
+        </div>
+    </div>
 
+    <div id="notificationCard" class="popup-card" style="display:none;">
+        <div class="card-content">
+            <img id="notificationPic" src="" alt="Notification">
+            <p id="notificationMessage"></p>
+            <button id="notificationCloseBtn">Close</button>
+        </div>
+    </div>
+
+    <div id="loadingOverlay" class="loading-overlay" style="display:none;">
+        <div class="spinner"></div>
+    </div>
+
+
+    <script type="module" src="registration.js" defer></script>
+    
 </body>
 </html>

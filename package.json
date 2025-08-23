@@ -1,23 +1,35 @@
 {
-  "name": "move-on",
+  "name": "",
   "version": "1.0.0",
-  "description": "Fitness Website",
+  "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "type": "module",
+  "license": "AGPL-version-3.0",
+  "private": false,
+  "engines": {
+    "node": ">= 14.0.0",
+    "npm": ">= 6.0.0"
   },
+  "homepage": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Fiona1217/Move-On.git"
+    "url": ""
   },
+  "bugs": "",
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Fiona1217/Move-On/issues"
+  "author": {
+    "name": "",
+    "email": "",
+    "url": ""
   },
-  "homepage": "https://github.com/Fiona1217/Move-On#readme",
+  "contributors": [],
+  "scripts": {
+    "dev": "",
+    "test": ""
+  },
   "dependencies": {
-    "firebase": "^12.1.0"
+    "dotenv": "^17.2.1",
+    "firebase-admin": "^13.4.0",
+    "nodemailer": "^7.0.5"
   }
 }
